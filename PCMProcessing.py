@@ -30,7 +30,6 @@ def LoadFiles(filePath = None):
 
 def TruncateToMinLength(dataCollection):
 	"""This method matches the length of the data by cutting off the tails of longer files"""
-	print("<<<TruncateToMinLength() in progress>>>")
 	# Get minimum length and file name of it
 	minLength = 9999999
 	fileName = ""
@@ -57,7 +56,6 @@ def TruncateToMinLength(dataCollection):
 
 def ElongateToMaxLength(dataCollection):
 	"""This method matches the length of the data by inputing average value to the tails of shorter files"""
-	print("<<<ElongateToMaxLength() in progress>>>")
 	maxLength = 0
 	fileName = ""
 	for name in dataCollection:
@@ -94,7 +92,6 @@ def SaveData(data, filePath = None, fileName = "Processed"):
 	print("Saved the processed file\n")
 
 def MatchFrequency(dataCollection, originalF = 7840, targetF = 45000):
-	print("<<<MatchFrequency() in progress>>>")
 	output = ([], [])
 	print("Processing frequency match from {0} Hz to {1} Hz.".format(originalF, targetF))
 	if originalF > targetF:
@@ -176,8 +173,11 @@ def DecreaseFrequency(data, originalF, targetF, avgOption = True):
 	return returnData
 	
 if (__name__ == "__main__"):
+	print("The path may contain spaces and escape characters will not work.")
 	filePath = input("What is the path of your data folder?\n>>> ")
+	print("<<<MatchFrequency() in progress>>>")
 	SaveData(MatchFrequency(LoadFiles(filePath)), filePath)
+	print("<<<ElongateToMaxLength() in progress>>>")
 	SaveData(ElongateToMaxLength(LoadFiles(filePath)), filePath)
 	
 	

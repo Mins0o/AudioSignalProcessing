@@ -114,7 +114,7 @@ def FrequencyChart(freqCap = 20000):
 		list(range(20, min(60, freqCap), 20)) + list(range(60, min(120, freqCap), 10)) + list(range(120, min(350, freqCap), 5)) + list(range(350, min(2000, freqCap), 20)) + list(range(2000, min(8000, freqCap), 100)) + list(range(8000, min(20000, freqCap), 300)))
 
 if(__name__ == "__main__"):
-	temp_x, y = TsvToXY('./Data/SoundPCM/PCM_45kHz.tsv')
+	temp_x, y = TsvToXY('./7.8_combined_to_45.tsv')
 	x = np.array(temp_x)
 	#x=np.array([np.array(data) for data in temp_x])
 	fouriers=[]
