@@ -159,6 +159,7 @@ def DecreaseFrequency(data, originalF, targetF, avgOption = True):
 		while not endOfList:
 			random.shuffle(randAdd)
 			for randomArrayIndex in range(targetF):
+				index += baseStep + randAdd[randomArrayIndex]
 				slice = data[prev:index]
 				if not slice == []:
 					returnData.append(int(round(average(slice))))
@@ -166,7 +167,6 @@ def DecreaseFrequency(data, originalF, targetF, avgOption = True):
 					endOfList = True
 					break
 				prev = index
-				index += baseStep + randAdd[randomArrayIndex]
 	else:
 		while not endOfList:
 			random.shuffle(randAdd)
